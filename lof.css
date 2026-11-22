@@ -2307,6 +2307,7 @@ body {
 }
 
 
+
 /* ===== 18. ONGLETS LOFS ================================================== */
 
 /* Conteneur des onglets LOFS */
@@ -2332,7 +2333,7 @@ body {
   padding: 8px 12px;
   box-sizing: border-box;
   background: var(--neutralDarker);
-  border: 2px solid var(--borderClr);
+  border: 2px solid var(--accentClrAlt);
   border-radius: 6px;
   color: var(--textColor);
   font-family: Garamond,serif;
@@ -2347,13 +2348,12 @@ body {
 
 .onglets-lofs>label:hover {
   background: var(--neutralDark);
-  border-color: var(--accentClrAlt);
   color: var(--textColorAccent);
 }
 
 .onglets-lofs>input:checked+label {
-  background: var(--neutralDark);
-  border-color: var(--accentClr);
+  background: var(--neutral);
+  border-color: var(--accentClrAlt);
   color: var(--textColorAccent);
   font-weight: 700;
 }
@@ -2368,7 +2368,7 @@ body {
   padding: 15px;
   box-sizing: border-box;
   background: var(--neutralDark);
-  border: 2px solid var(--borderClr);
+  border: 2px solid var(--accentClrAlt);
   border-radius: 6px;
   color: var(--textColor);
 }
@@ -2406,8 +2406,8 @@ body {
 .onglets-lofs.vertical {
   display: grid;
   grid-template-columns: 170px minmax(0,1fr);
-  grid-template-rows: repeat(30,44px);
-  grid-auto-flow: row;
+  grid-template-rows: auto;
+  grid-auto-rows: 44px;
   align-items: start;
   column-gap: 12px;
   row-gap: 8px;
@@ -2432,7 +2432,7 @@ body {
   height: 1px;
   flex: 0 0 25px;
   margin-left: 8px;
-  background: currentColor;
+  background: var(--accentClrAlt);
 }
 
 .onglets-lofs.vertical>input:checked+label {
