@@ -2313,10 +2313,8 @@ body {
 
 /* Conteneur des onglets */
 .onglets-lofs {
-  display: grid;
   width: 100%;
   margin: 0 auto;
-  gap: 8px;
   box-sizing: border-box;
 }
 
@@ -2364,6 +2362,7 @@ body {
 
 /* Contenu des onglets */
 .onglets-lofs-content {
+  display: none;
   min-width: 0;
   width: 100%;
   height: auto;
@@ -2374,31 +2373,25 @@ body {
   border: 2px solid var(--borderClr);
   border-radius: 6px;
   color: var(--textColor);
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  z-index: 1;
-  transition: opacity .25s;
 }
 
 /* Contenu de l'onglet actif */
 .onglets-lofs>input:checked+label+.onglets-lofs-content {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-  z-index: 2;
+  display: block;
 }
 
 /* Onglets horizontaux : modèle 2 */
 .onglets-lofs.horizontal {
-  grid-template-columns: repeat(10,minmax(0,max-content));
-  grid-template-rows: max-content max-content;
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
+  align-items: flex-start;
   gap: 10px;
 }
 
 .onglets-lofs.horizontal>label {
-  grid-row: 1;
+  flex: 0 0 auto;
+  width: auto;
   min-width: 60px;
   min-height: 60px;
   padding: 8px 15px;
@@ -2406,18 +2399,18 @@ body {
 }
 
 .onglets-lofs.horizontal>.onglets-lofs-content {
-  grid-column: 1/-1;
-  grid-row: 2;
+  flex: 0 0 100%;
+  order: 100;
   width: 100%;
-  align-self: start;
+  height: auto;
 }
 
 /* Onglets verticaux : modèle 5 */
 .onglets-lofs.vertical {
+  display: grid;
   grid-template-columns: 160px minmax(0,1fr);
   grid-template-rows: auto;
   column-gap: 18px;
-  row-gap: 0;
   align-items: start;
 }
 
@@ -2430,7 +2423,7 @@ body {
   width: 160px;
   height: 44px;
   min-height: 44px;
-  margin-top: calc((var(--onglet-position,1) - 1)*52px);
+  margin-top: calc(var(--onglet-position,0)*52px);
   padding: 6px 10px;
   border-radius: 0 6px 12px 0;
   font-size: 17px;
@@ -2439,43 +2432,43 @@ body {
 
 /* Position des boutons : 10 maximum */
 .onglets-lofs.vertical>label:nth-of-type(1) {
-  --onglet-position: 1;
+  --onglet-position: 0;
 }
 
 .onglets-lofs.vertical>label:nth-of-type(2) {
-  --onglet-position: 2;
+  --onglet-position: 1;
 }
 
 .onglets-lofs.vertical>label:nth-of-type(3) {
-  --onglet-position: 3;
+  --onglet-position: 2;
 }
 
 .onglets-lofs.vertical>label:nth-of-type(4) {
-  --onglet-position: 4;
+  --onglet-position: 3;
 }
 
 .onglets-lofs.vertical>label:nth-of-type(5) {
-  --onglet-position: 5;
+  --onglet-position: 4;
 }
 
 .onglets-lofs.vertical>label:nth-of-type(6) {
-  --onglet-position: 6;
+  --onglet-position: 5;
 }
 
 .onglets-lofs.vertical>label:nth-of-type(7) {
-  --onglet-position: 7;
+  --onglet-position: 6;
 }
 
 .onglets-lofs.vertical>label:nth-of-type(8) {
-  --onglet-position: 8;
+  --onglet-position: 7;
 }
 
 .onglets-lofs.vertical>label:nth-of-type(9) {
-  --onglet-position: 9;
+  --onglet-position: 8;
 }
 
 .onglets-lofs.vertical>label:nth-of-type(10) {
-  --onglet-position: 10;
+  --onglet-position: 9;
 }
 
 /* Trait décoratif */
@@ -2492,11 +2485,6 @@ body {
 /* Trait de l'onglet actif */
 .onglets-lofs.vertical>input:checked+label::after {
   background: var(--accentClrDark);
-}
-
-/* Bouton vertical actif */
-.onglets-lofs.vertical>input:checked+label {
-  font-weight: 700;
 }
 
 /* Contenu vertical */
