@@ -1,0 +1,132 @@
+
+    
+  
+  border-radius: 5px;
+  box-shadow: none;
+  overflow: hidden;
+  cursor: pointer;
+  opacity: .65;
+  transition: .2s;
+}
+
+.profilsonglets-anoan_tab:hover {
+  border-color: var(--groupColor);
+  opacity: .9;
+  transform: translateY(-2px);
+}
+
+.profilsonglets-anoan_tab.selected {
+  border-color: var(--groupColor);
+  opacity: 1;
+  transform: none;
+}
+
+/* Conteneur des contenus */
+.profilsonglets-anoan_contents {
+  width: 210px;
+  height: auto !important;
+  min-height: 300px;
+  margin: 0;
+  box-sizing: border-box;
+  background: var(--neutralDark);
+  border: 4px double var(--borderClr);
+  border-radius: 8px;
+  overflow: visible !important;
+  text-align: left;
+}
+
+/* Contenu d’un onglet */
+.profilsonglets-anoan_content {
+  display: none;
+  width: 100%;
+  height: auto !important;
+  min-height: 292px;
+  padding: 8px 9px 12px;
+  box-sizing: border-box;
+  overflow: visible !important;
+}
+
+.profilsonglets-anoan_content.selected {
+  display: block;
+}
+
+/* ===== 18. ONGLETS LOFS ================================================== */
+/* --- 18.1 Onglets horizontaux et verticaux --- */
+
+/* Conteneur des onglets LOFS */
+.onglets-lofs {
+  display: grid;
+  gap: 5px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.onglets-lofs>br,
+.onglets-lofs>input[type="radio"] {
+  display: none !important;
+}
+
+.onglets-lofs>label {
+  display: block;
+  padding: 2px 10px;
+  color: var(--textColor);
+  font-size: 12px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: .25s;
+}
+
+.onglets-lofs>label:hover {
+  color: var(--accentClr);
+}
+
+.onglets-lofs>input:checked+label {
+  background: var(--neutralDark);
+  color: var(--textColorAccent);
+  border-radius: 5px;
+}
+
+.onglets-lofs-content {
+  z-index: 1;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  box-sizing: border-box;
+  padding: 5px 10px;
+  background: var(--neutralDark);
+  border-radius: 5px;
+  transition: .35s;
+}
+
+.onglets-lofs>input:checked+label+.onglets-lofs-content {
+  z-index: 2;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.onglets-lofs.vertical {
+  grid-template-columns: max-content minmax(0,1fr);
+  grid-template-rows: repeat(30,minmax(min-content,auto));
+}
+
+.onglets-lofs.vertical>label {
+  grid-column: 1;
+}
+
+.onglets-lofs.vertical>.onglets-lofs-content {
+  grid-column: 2;
+  grid-row: 1/-1;
+}
+
+.onglets-lofs.horizontal {
+  grid-template-columns: repeat(30,max-content);
+  grid-template-rows: max-content minmax(min-content,auto);
+  justify-content: start;
+}
+
+.onglets-lofs.horizontal>label {
+  grid-row: 1;
+}
+
