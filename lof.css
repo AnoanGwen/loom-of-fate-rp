@@ -2349,12 +2349,12 @@ body {
 .onglets-lofs>label:hover {
   background: var(--neutralDark);
   color: var(--textColorAccent);
-  border-color: var(--accentClrAlt);
+  border-color: var(--accentClrDark);
 }
 
 .onglets-lofs>input:checked+label {
   background: var(--neutralDark);
-  border-color: var(--accentClrAlt);
+  border-color: var(--accentClrDark);
   color: var(--textColorAccent);
   font-weight: 700;
 }
@@ -2369,7 +2369,7 @@ body {
   padding: 15px;
   box-sizing: border-box;
   background: var(--neutralDark);
-  border: 2px solid var(--borderClr);
+  border: 2px solid var(--accentClrDark);
   border-radius: 6px;
   color: var(--textColor);
 }
@@ -2378,7 +2378,7 @@ body {
   display: block;
 }
 
-/* Onglets horizontaux */
+/* Onglets horizontaux : modèle 2 */
 .onglets-lofs.horizontal {
   display: flex;
   flex-wrap: wrap;
@@ -2402,14 +2402,14 @@ body {
   width: 100%;
 }
 
-/* Onglets verticaux */
+/* Onglets verticaux : modèle 5 */
 .onglets-lofs.vertical {
   display: grid;
   grid-template-columns: 170px minmax(0,1fr);
-  grid-template-rows: repeat(30,44px);
+  grid-auto-rows: min-content;
+  align-items: start;
   column-gap: 12px;
   row-gap: 8px;
-  align-items: start;
 }
 
 .onglets-lofs.vertical>label {
@@ -2435,7 +2435,7 @@ body {
 }
 
 .onglets-lofs.vertical>input:checked+label::after {
-  background: var(--accentClrAlt);
+  background: var(--accentClrDark);
 }
 
 .onglets-lofs.vertical>.onglets-lofs-content {
