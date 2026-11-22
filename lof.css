@@ -2307,7 +2307,6 @@ body {
 }
 
 
-
 /* ===== 18. ONGLETS LOFS ================================================== */
 
 /* Conteneur des onglets LOFS */
@@ -2330,7 +2329,7 @@ body {
   align-items: center;
   justify-content: center;
   min-width: 0;
-  padding: 8px 15px;
+  padding: 8px 12px;
   box-sizing: border-box;
   background: var(--neutralDarker);
   border: 2px solid var(--borderClr);
@@ -2341,6 +2340,7 @@ body {
   font-weight: 400;
   font-variant-caps: all-small-caps;
   text-align: center;
+  white-space: nowrap;
   cursor: pointer;
   transition: .2s;
 }
@@ -2352,9 +2352,9 @@ body {
 }
 
 .onglets-lofs>input:checked+label {
-  background: var(--neutral);
+  background: var(--neutralDark);
   border-color: var(--accentClr);
-  color: var(--accentClr);
+  color: var(--textColorAccent);
   font-weight: 700;
 }
 
@@ -2368,7 +2368,7 @@ body {
   padding: 15px;
   box-sizing: border-box;
   background: var(--neutralDark);
-  border: 2px solid var(--accentClr);
+  border: 2px solid var(--borderClr);
   border-radius: 6px;
   color: var(--textColor);
 }
@@ -2389,54 +2389,61 @@ body {
 .onglets-lofs.horizontal>label {
   flex: 0 0 auto;
   width: auto;
-  min-width: 58px;
-  min-height: 58px;
-  padding: 8px 14px;
-  font-size: 26px;
+  min-width: 60px;
+  min-height: 60px;
+  padding: 8px 15px;
+  font-size: 28px;
 }
 
 .onglets-lofs.horizontal>.onglets-lofs-content {
   flex: 0 0 100%;
   order: 100;
+  width: 100%;
   height: auto;
-  min-height: 0;
 }
 
 /* Onglets verticaux */
 .onglets-lofs.vertical {
   display: grid;
-  grid-template-columns: 220px minmax(0,1fr);
-  grid-template-rows: none;
-  grid-auto-rows: min-content;
+  grid-template-columns: 170px minmax(0,1fr);
+  grid-template-rows: repeat(30,44px);
+  grid-auto-flow: row;
   align-items: start;
-  gap: 8px 15px;
+  column-gap: 12px;
+  row-gap: 8px;
 }
 
 .onglets-lofs.vertical>label {
   grid-column: 1;
   justify-self: center;
-  justify-content: center;
-  width: 210px;
-  min-height: 54px;
-  padding: 10px 15px;
+  width: 160px;
+  height: 44px;
+  min-height: 44px;
+  padding: 6px 10px;
   border-radius: 0 6px 12px 0;
-  font-size: 20px;
+  font-size: 17px;
+  font-weight: 400;
 }
 
 .onglets-lofs.vertical>label::after {
   content: "";
   display: block;
-  width: 35px;
+  width: 25px;
   height: 1px;
-  flex: 0 0 35px;
-  margin-left: 12px;
+  flex: 0 0 25px;
+  margin-left: 8px;
   background: currentColor;
+}
+
+.onglets-lofs.vertical>input:checked+label {
+  font-weight: 700;
 }
 
 .onglets-lofs.vertical>.onglets-lofs-content {
   grid-column: 2;
   grid-row: 1;
-  align-self: start;
+  width: 100%;
   height: auto;
   min-height: 0;
+  align-self: start;
 }
