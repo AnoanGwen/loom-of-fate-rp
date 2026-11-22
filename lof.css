@@ -2307,13 +2307,14 @@ body {
 }
 
 
-
 /* ===== 18. ONGLETS LOFS ================================================== */
 
 /* Conteneur des onglets */
 .onglets-lofs {
+  display: grid;
   width: 100%;
   margin: 0 auto;
+  gap: 8px;
   box-sizing: border-box;
 }
 
@@ -2342,7 +2343,7 @@ body {
   text-align: center;
   white-space: nowrap;
   cursor: pointer;
-  transition: all .25s;
+  transition: background .25s,border-color .25s,color .25s;
 }
 
 /* Onglet au survol */
@@ -2361,7 +2362,6 @@ body {
 
 /* Contenu des onglets */
 .onglets-lofs-content {
-  display: none;
   min-width: 0;
   width: 100%;
   height: auto;
@@ -2372,25 +2372,31 @@ body {
   border: 2px solid var(--borderClr);
   border-radius: 6px;
   color: var(--textColor);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 1;
+  transition: opacity .25s;
 }
 
 /* Contenu de l'onglet actif */
 .onglets-lofs>input:checked+label+.onglets-lofs-content {
-  display: block;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  z-index: 2;
 }
 
-/* Onglets horizontaux */
+/* Onglets horizontaux : modèle 2 */
 .onglets-lofs.horizontal {
-  display: flex;
-  flex-wrap: wrap;
+  grid-template-columns: repeat(10,minmax(0,max-content));
+  grid-template-rows: max-content max-content;
   justify-content: center;
-  align-items: flex-start;
   gap: 10px;
 }
 
 .onglets-lofs.horizontal>label {
-  flex: 0 0 auto;
-  width: auto;
+  grid-row: 1;
   min-width: 60px;
   min-height: 60px;
   padding: 8px 15px;
@@ -2398,33 +2404,79 @@ body {
 }
 
 .onglets-lofs.horizontal>.onglets-lofs-content {
-  flex: 0 0 100%;
-  order: 100;
+  grid-column: 1/-1;
+  grid-row: 2;
   width: 100%;
-  height: auto;
+  align-self: start;
 }
 
-/* Onglets verticaux */
+/* Onglets verticaux : modèle 5 */
 .onglets-lofs.vertical {
-  display: grid;
   grid-template-columns: 160px minmax(0,1fr);
-  grid-template-rows: repeat(10,52px);
+  grid-template-rows: auto;
   column-gap: 18px;
+  row-gap: 0;
   align-items: start;
 }
 
+/* Boutons verticaux */
 .onglets-lofs.vertical>label {
   grid-column: 1;
+  grid-row: 1;
   justify-self: center;
+  align-self: start;
   width: 160px;
   height: 44px;
   min-height: 44px;
+  margin-top: calc((var(--onglet-position,1) - 1)*52px);
   padding: 6px 10px;
   border-radius: 0 6px 12px 0;
   font-size: 17px;
   font-weight: 400;
 }
 
+/* Position des boutons : 10 maximum */
+.onglets-lofs.vertical>label:nth-of-type(1) {
+  --onglet-position: 1;
+}
+
+.onglets-lofs.vertical>label:nth-of-type(2) {
+  --onglet-position: 2;
+}
+
+.onglets-lofs.vertical>label:nth-of-type(3) {
+  --onglet-position: 3;
+}
+
+.onglets-lofs.vertical>label:nth-of-type(4) {
+  --onglet-position: 4;
+}
+
+.onglets-lofs.vertical>label:nth-of-type(5) {
+  --onglet-position: 5;
+}
+
+.onglets-lofs.vertical>label:nth-of-type(6) {
+  --onglet-position: 6;
+}
+
+.onglets-lofs.vertical>label:nth-of-type(7) {
+  --onglet-position: 7;
+}
+
+.onglets-lofs.vertical>label:nth-of-type(8) {
+  --onglet-position: 8;
+}
+
+.onglets-lofs.vertical>label:nth-of-type(9) {
+  --onglet-position: 9;
+}
+
+.onglets-lofs.vertical>label:nth-of-type(10) {
+  --onglet-position: 10;
+}
+
+/* Trait décoratif */
 .onglets-lofs.vertical>label::after {
   content: "";
   display: block;
@@ -2435,20 +2487,21 @@ body {
   background: var(--borderClr);
 }
 
+/* Trait de l'onglet actif */
 .onglets-lofs.vertical>input:checked+label::after {
   background: var(--accentClrDark);
 }
 
+/* Bouton vertical actif */
 .onglets-lofs.vertical>input:checked+label {
   font-weight: 700;
 }
 
+/* Contenu vertical */
 .onglets-lofs.vertical>.onglets-lofs-content {
   grid-column: 2;
-  grid-row: 1 / -1;
+  grid-row: 1;
   width: 100%;
-  height: auto;
-  min-height: 0;
   align-self: start;
 }
 
