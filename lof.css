@@ -2730,81 +2730,63 @@ body {
   }
 }
 
-/* ===== 20. FORMULAIRE DE RÉDACTION ======================================= */
+/* ===== 20. FORMULAIRE DE RÉDACTION ======================================== */
 
-/* Largeur disponible pour le formulaire */
-#postingbox,
-#postingbox form,
-#post,
-.posting-block,
-.posting-block .inner,
-#textarea_content {
-  max-width: 100%;
+/* Titre du message */
+#postingbox input[name="subject"] {
+  width: 100% !important;
+  max-width: 100% !important;
   box-sizing: border-box;
 }
 
-/* Le titre doit occuper la largeur disponible */
-#postingbox input[name="subject"],
-#post input[name="subject"],
-input#subject,
-input[name="subject"] {
+#postingbox input[name="description"] {
+  width: 100% !important;
+  box-sizing: border-box;
+}
+
+/* Répartition smileys / éditeur */
+#postingbox .sceditor-container {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  box-sizing: border-box;
+}
+
+#postingbox .sceditor-container iframe {
+  width: 100% !important;
+  min-width: 0 !important;
+  box-sizing: border-box;
+}
+
+#postingbox textarea {
   width: 100% !important;
   max-width: 100% !important;
-  min-width: 0 !important;
-  box-sizing: border-box !important;
+  box-sizing: border-box;
 }
 
-/* Éditeur principal prioritaire sur les smileys */
-#textarea_content {
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: stretch !important;
-  gap: 12px !important;
-  width: 100% !important;
-  min-width: 0 !important;
+/* Bloc des smileys */
+#postingbox #smiley-box {
+  width: 200px !important;
+  min-width: 200px !important;
+  max-width: 200px !important;
+  flex: 0 0 200px !important;
+  box-sizing: border-box;
 }
 
-#textarea_content > :not(#smiley-box):not(.smiley-box) {
+#postingbox #smiley-box img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Zone de rédaction */
+#postingbox #message-box {
   flex: 1 1 0 !important;
+  width: auto !important;
   min-width: 0 !important;
   max-width: none !important;
+  box-sizing: border-box;
 }
 
-#textarea_content #smiley-box,
-#textarea_content .smiley-box,
-#smiley-box {
-  flex: 0 0 200px !important;
-  width: 200px !important;
-  min-width: 0 !important;
-  max-width: 200px !important;
-  box-sizing: border-box !important;
-}
-
-#textarea_content .sceditor-container,
-#textarea_content .sceditor-container iframe,
-#textarea_content textarea,
-#textarea_content #message,
-.sceditor-container {
+#postingbox #message-box .sceditor-container {
   width: 100% !important;
-  max-width: 100% !important;
-  min-width: 0 !important;
-  box-sizing: border-box !important;
-}
-
-#textarea_content .sceditor-container,
-#textarea_content #message {
-  min-height: 350px;
-}
-
-@media (max-width: 650px) {
-  #textarea_content {
-    flex-direction: column !important;
-  }
-  #textarea_content #smiley-box,
-  #textarea_content .smiley-box,
-  #smiley-box {
-    flex-basis: auto !important;
-    width: 100% !important;
-    max-width: 100% !important;
-  }
 }
