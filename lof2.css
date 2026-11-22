@@ -300,5 +300,164 @@
     grid-column: 1;
     grid-row: 3;
   }
-  
 }
+
+
+/* ===== 21. LISTE DES MEMBRES ============================================== */
+
+/* Conteneur général */
+.anoan-memberlist {
+  padding: 20px;
+}
+
+/* Grille des membres */
+.anoan-memberlist .userlist {
+  display: grid;
+  grid-template-columns: repeat(4,minmax(0,1fr));
+  gap: 15px;
+  align-items: start;
+}
+
+/* Carte d'un membre */
+.anoan-memberlist .userlist_profil {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+  min-height: 360px;
+  margin: 0;
+  padding: 12px 10px;
+  box-sizing: border-box;
+  background: var(--neutralDark);
+  border: 1px solid var(--borderClr);
+  border-radius: 6px;
+}
+
+/* Informations du membre */
+.anoan-memberlist .userlist_infos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* Pseudo */
+.anoan-memberlist .userlist_pseudo {
+  display: block;
+  width: 100%;
+  margin: 0;
+  color: var(--textColor);
+  font-family: Limelight,serif;
+  font-size: 22px;
+  font-weight: 400;
+  font-variant-caps: all-small-caps;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+/* Survol du pseudo */
+.anoan-memberlist .userlist_pseudo:hover {
+  color: var(--textColorAccent);
+}
+
+/* Dernière visite */
+.anoan-memberlist .userlist_lastvisit {
+  margin: 4px 0 8px;
+  color: var(--textColorAccent);
+  font-family: Limelight,serif;
+  font-size: 15px;
+  font-variant-caps: all-small-caps;
+  line-height: 1.2;
+  text-align: center;
+}
+
+/* Informations secondaires */
+.anoan-memberlist .userlist_stats {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 3px;
+  margin: 0 0 10px;
+}
+
+/* Ligne d'information */
+.anoan-memberlist .userlist_stat {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  color: var(--textColor);
+  font-size: 12px;
+  font-style: italic;
+  line-height: 1.3;
+}
+
+/* Avatar */
+.anoan-memberlist .userlist_avatar {
+  display: block;
+  width: 150px;
+  height: 250px;
+  max-width: 100%;
+  margin: auto auto 0;
+  padding: 3px;
+  box-sizing: border-box;
+  background: var(--neutral);
+  border: 2px solid var(--accentClrDark);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Image de l'avatar */
+.anoan-memberlist .userlist_avatar img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 4px;
+}
+
+/* Contact */
+.anoan-memberlist .userlist_contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  min-height: 20px;
+  margin-top: 8px;
+}
+
+/* Pagination */
+.anoan-memberlist-pagination {
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* Écrans intermédiaires */
+@media (max-width: 850px) {
+  .anoan-memberlist .userlist {
+    grid-template-columns: repeat(3,minmax(0,1fr));
+  }
+}
+
+/* Tablettes */
+@media (max-width: 650px) {
+  .anoan-memberlist .userlist {
+    grid-template-columns: repeat(2,minmax(0,1fr));
+  }
+}
+
+/* Mobiles */
+@media (max-width: 400px) {
+  .anoan-memberlist .userlist {
+    grid-template-columns: minmax(0,1fr);
+  }
+}
+
