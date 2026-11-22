@@ -1546,7 +1546,7 @@ body {
 }
 
 .aerie-viewtopic-actions-bottom {
-  margin: 0 0 12px;
+  margin: 15px 0 12px;
   justify-content: space-between;
 }
 
@@ -2730,6 +2730,7 @@ body {
   }
 }
 
+
 /* ===== 20. FORMULAIRE DE RÉDACTION ======================================== */
 
 /* Titre du message */
@@ -2744,44 +2745,42 @@ body {
   box-sizing: border-box;
 }
 
-/* Répartition smileys / éditeur */
-#postingbox .sceditor-container {
-  width: 100% !important;
-  min-width: 0 !important;
-  max-width: 100% !important;
-  box-sizing: border-box;
+/* Conteneur smileys, options et éditeur */
+#postingbox .message-edition {
+  display: grid !important;
+  grid-template-columns: 190px minmax(0,1fr) !important;
+  column-gap: 15px;
+  row-gap: 10px;
+  align-items: start;
+  width: 100%;
+  min-width: 0;
 }
 
-#postingbox .sceditor-container iframe {
-  width: 100% !important;
-  min-width: 0 !important;
-  box-sizing: border-box;
-}
-
-#postingbox textarea {
-  width: 100% !important;
-  max-width: 100% !important;
-  box-sizing: border-box;
+/* Neutralisation de la disposition verticale */
+#postingbox .message-edition>.u-space-between {
+  display: contents !important;
 }
 
 /* Bloc des smileys */
-#postingbox #smiley-box {
-  width: 200px !important;
-  min-width: 200px !important;
-  max-width: 200px !important;
-  flex: 0 0 200px !important;
+#postingbox #smileyContainer {
+  grid-column: 1;
+  grid-row: 1;
+  width: 190px !important;
+  min-width: 0 !important;
+  max-width: 190px !important;
   box-sizing: border-box;
 }
 
-#postingbox #smiley-box img {
+#postingbox #smileyContainer img {
   max-width: 100%;
   height: auto;
 }
 
-/* Zone de rédaction */
+/* Éditeur de texte */
 #postingbox #message-box {
-  flex: 1 1 0 !important;
-  width: auto !important;
+  grid-column: 2;
+  grid-row: 1;
+  width: 100% !important;
   min-width: 0 !important;
   max-width: none !important;
   box-sizing: border-box;
@@ -2789,4 +2788,46 @@ body {
 
 #postingbox #message-box .sceditor-container {
   width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  box-sizing: border-box;
+}
+
+#postingbox #message-box iframe,
+#postingbox #message-box textarea {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box;
+}
+
+/* Options de publication */
+#postingbox .message-edition .post-param {
+  grid-column: 1/-1;
+  grid-row: 2;
+  width: 100% !important;
+  margin: 0;
+}
+
+/* Petits écrans */
+@media (max-width: 650px) {
+  #postingbox .message-edition {
+    grid-template-columns: minmax(0,1fr) !important;
+  }
+
+  #postingbox #smileyContainer {
+    grid-column: 1;
+    grid-row: 2;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  #postingbox #message-box {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  #postingbox .message-edition .post-param {
+    grid-column: 1;
+    grid-row: 3;
+  }
 }
