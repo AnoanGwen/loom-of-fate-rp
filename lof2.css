@@ -339,22 +339,18 @@
 .anoan-memberlist .userlist_pseudo {
   display: block;
   width: 100%;
-  margin: 0 0 4px;
-  color: var(--textColor);
+  margin: 0 0 6px;
+  color: inherit;
   font-family: Limelight,serif;
   font-size: 22px;
   font-weight: 400;
   font-variant: normal;
+  font-variant-caps: normal;
   text-transform: none;
   line-height: 1.2;
   text-align: center;
   text-decoration: none;
   overflow-wrap: anywhere;
-}
-
-/* Survol du pseudo */
-.anoan-memberlist .userlist_pseudo:hover {
-  color: var(--textColorAccent);
 }
 
 /* Dernière visite */
@@ -364,6 +360,7 @@
   color: var(--textColorAccent);
   font-family: inherit;
   font-size: 12px;
+  font-weight: 400;
   font-variant: normal;
   line-height: 1.4;
   text-align: center;
@@ -373,18 +370,23 @@
 .anoan-memberlist .userlist_stats {
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 100%;
   gap: 4px;
-  margin-bottom: 10px;
+  margin: 0 0 10px;
+  text-align: center;
 }
 
 /* Lignes d'informations */
 .anoan-memberlist .userlist_stat,
 .anoan-memberlist .userlist_organisation {
+  width: 100%;
+  color: var(--textColor);
   font-size: 12px;
   font-style: italic;
   line-height: 1.4;
-  color: var(--textColor);
+  text-align: center;
+  overflow-wrap: anywhere;
 }
 
 /* Organisation absente */
@@ -439,39 +441,19 @@
 
 /* Liens de contact */
 .anoan-memberlist .userlist_contact a {
-  color: var(--textColorAccent);
+  color: var(--accentClr) !important;
   font-size: 12px;
   text-decoration: none;
+  transition: color .2s ease;
 }
 
 /* Survol des contacts */
 .anoan-memberlist .userlist_contact a:hover {
-  color: var(--textColor);
+  color: var(--accentClrAlt) !important;
 }
 
 /* Pagination */
 .anoan-memberlist-pagination {
   margin-top: 20px;
   text-align: center;
-}
-
-/* Écrans intermédiaires */
-@media (max-width: 850px) {
-  .anoan-memberlist .userlist {
-    grid-template-columns: repeat(3,minmax(0,1fr));
-  }
-}
-
-/* Tablettes */
-@media (max-width: 650px) {
-  .anoan-memberlist .userlist {
-    grid-template-columns: repeat(2,minmax(0,1fr));
-  }
-}
-
-/* Mobiles */
-@media (max-width: 400px) {
-  .anoan-memberlist .userlist {
-    grid-template-columns: minmax(0,1fr);
-  }
 }
