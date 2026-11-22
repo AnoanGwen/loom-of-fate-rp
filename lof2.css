@@ -303,6 +303,7 @@
 }
 
 
+
 /* ===== 21. LISTE DES MEMBRES ============================================== */
 
 /* Conteneur général */
@@ -315,10 +316,10 @@
   display: grid;
   grid-template-columns: repeat(4,minmax(0,1fr));
   gap: 15px;
-  align-items: start;
+  align-items: stretch;
 }
 
-/* Carte d'un membre */
+/* Carte de membre */
 .anoan-memberlist .userlist_profil {
   display: flex;
   flex-direction: column;
@@ -329,32 +330,22 @@
   margin: 0;
   padding: 12px 10px;
   box-sizing: border-box;
-  background: var(--neutralDark);
+  background: var(--neutral);
   border: 1px solid var(--borderClr);
   border-radius: 6px;
-}
-
-/* Informations du membre */
-.anoan-memberlist .userlist_infos {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  min-width: 0;
-  margin: 0;
-  padding: 0;
 }
 
 /* Pseudo */
 .anoan-memberlist .userlist_pseudo {
   display: block;
   width: 100%;
-  margin: 0;
+  margin: 0 0 4px;
   color: var(--textColor);
   font-family: Limelight,serif;
   font-size: 22px;
   font-weight: 400;
-  font-variant-caps: all-small-caps;
+  font-variant: normal;
+  text-transform: none;
   line-height: 1.2;
   text-align: center;
   text-decoration: none;
@@ -368,42 +359,52 @@
 
 /* Dernière visite */
 .anoan-memberlist .userlist_lastvisit {
-  margin: 4px 0 8px;
+  width: 100%;
+  margin: 0 0 10px;
   color: var(--textColorAccent);
-  font-family: Limelight,serif;
-  font-size: 15px;
-  font-variant-caps: all-small-caps;
-  line-height: 1.2;
+  font-family: inherit;
+  font-size: 12px;
+  font-variant: normal;
+  line-height: 1.4;
   text-align: center;
 }
 
-/* Informations secondaires */
+/* Informations */
 .anoan-memberlist .userlist_stats {
   display: flex;
   flex-direction: column;
   width: 100%;
-  gap: 3px;
-  margin: 0 0 10px;
+  gap: 4px;
+  margin-bottom: 10px;
 }
 
-/* Ligne d'information */
-.anoan-memberlist .userlist_stat {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-  color: var(--textColor);
+/* Lignes d'informations */
+.anoan-memberlist .userlist_stat,
+.anoan-memberlist .userlist_organisation {
   font-size: 12px;
   font-style: italic;
-  line-height: 1.3;
+  line-height: 1.4;
+  color: var(--textColor);
+}
+
+/* Organisation absente */
+.anoan-memberlist .userlist_organisation[hidden] {
+  display: none !important;
+}
+
+/* Libellés */
+.anoan-memberlist .userlist_stat-label {
+  margin-right: 4px;
 }
 
 /* Avatar */
 .anoan-memberlist .userlist_avatar {
   display: block;
+  flex: none;
   width: 150px;
   height: 250px;
   max-width: 100%;
-  margin: auto auto 0;
+  margin: auto 0 0;
   padding: 3px;
   box-sizing: border-box;
   background: var(--neutral);
@@ -424,14 +425,28 @@
   border-radius: 4px;
 }
 
-/* Contact */
+/* Contacts */
 .anoan-memberlist .userlist_contact {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 8px;
+  flex-wrap: wrap;
+  gap: 12px;
+  width: 100%;
   min-height: 20px;
-  margin-top: 8px;
+  margin-top: 10px;
+}
+
+/* Liens de contact */
+.anoan-memberlist .userlist_contact a {
+  color: var(--textColorAccent);
+  font-size: 12px;
+  text-decoration: none;
+}
+
+/* Survol des contacts */
+.anoan-memberlist .userlist_contact a:hover {
+  color: var(--textColor);
 }
 
 /* Pagination */
@@ -460,4 +475,3 @@
     grid-template-columns: minmax(0,1fr);
   }
 }
-
