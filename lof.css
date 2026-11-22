@@ -2312,9 +2312,10 @@ body {
 /* Conteneur des onglets LOFS */
 .onglets-lofs {
   display: grid;
-  gap: 6px;
+  gap: 8px;
   width: 100%;
   margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .onglets-lofs>br,
@@ -2322,51 +2323,54 @@ body {
   display: none !important;
 }
 
-/* Apparence générale des onglets */
+/* Apparence générale des boutons */
 .onglets-lofs>label {
   display: flex;
   align-items: center;
   justify-content: center;
   min-width: 0;
-  min-height: 40px;
-  padding: 5px 12px;
+  padding: 6px 12px;
   box-sizing: border-box;
-  background: var(--neutralDark);
-  border: 2px solid var(--accentClr);
+  background: var(--neutralDarker);
+  border: 2px solid var(--borderClr);
   border-radius: 6px;
-  color: var(--textColorAccent);
+  color: var(--textColor);
   font-family: Garamond,serif;
-  font-size: 18px;
+  font-size: 15px;
   font-variant-caps: all-small-caps;
   text-align: center;
   white-space: nowrap;
   cursor: pointer;
-  opacity: .65;
   transition: .2s;
 }
 
 .onglets-lofs>label:hover {
-  opacity: .85;
+  background: var(--neutralDark);
+  border-color: var(--accentClr);
+  color: var(--textColorAccent);
 }
 
 .onglets-lofs>input:checked+label {
   background: var(--neutral);
-  color: var(--textColorAccent);
-  opacity: 1;
+  border-color: var(--accentClr);
+  color: var(--accentClr);
+  font-weight: 700;
 }
 
 /* Contenu des onglets */
 .onglets-lofs-content {
   z-index: 1;
+  min-width: 0;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
   box-sizing: border-box;
-  padding: 12px;
+  padding: 15px;
   background: var(--neutralDark);
   border: 2px solid var(--accentClr);
   border-radius: 6px;
-  transition: opacity .25s;
+  color: var(--textColor);
+  transition: opacity .2s;
 }
 
 .onglets-lofs>input:checked+label+.onglets-lofs-content {
@@ -2376,18 +2380,18 @@ body {
   pointer-events: auto;
 }
 
-/* Onglets horizontaux : modèle 2 */
+/* Onglets horizontaux */
 .onglets-lofs.horizontal {
   grid-template-columns: repeat(30,max-content);
-  grid-template-rows: max-content minmax(min-content,auto);
+  grid-template-rows: max-content minmax(100px,auto);
   justify-content: start;
 }
 
 .onglets-lofs.horizontal>label {
   grid-row: 1;
-  min-width: 50px;
-  min-height: 50px;
+  min-height: 36px;
   padding: 5px 12px;
+  font-size: 14px;
 }
 
 .onglets-lofs.horizontal>.onglets-lofs-content {
@@ -2396,27 +2400,33 @@ body {
   width: 100%;
 }
 
-/* Onglets verticaux : modèle 5 */
+/* Onglets verticaux/
 .onglets-lofs.vertical {
-  grid-template-columns: max-content minmax(0,1fr);
+  grid-template-columns: 190px minmax(0,1fr);
   grid-template-rows: repeat(30,minmax(min-content,auto));
+  width: 100%;
+  justify-content: stretch;
   align-items: start;
 }
 
 .onglets-lofs.vertical>label {
   grid-column: 1;
-  justify-content: flex-start;
-  min-width: 150px;
+  justify-self: center;
+  justify-content: center;
+  width: 180px;
+  min-height: 44px;
+  padding: 7px 12px;
   border-radius: 0 6px 12px 0;
+  font-size: 18px;
 }
 
 .onglets-lofs.vertical>label::after {
   content: "";
   display: block;
-  width: 60px;
+  width: 35px;
   height: 1px;
-  flex: 0 0 60px;
-  margin-left: 12px;
+  flex: 0 0 35px;
+  margin-left: 10px;
   background: var(--accentClr);
 }
 
@@ -2424,4 +2434,6 @@ body {
   grid-column: 2;
   grid-row: 1/-1;
   width: 100%;
+  min-height: 150px;
+  align-self: stretch;
 }
