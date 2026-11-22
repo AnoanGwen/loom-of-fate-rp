@@ -2518,8 +2518,10 @@ body {
 .aerie-posts.page-tab {
   display: grid;
   grid-template-columns: 200px minmax(0,1fr);
-  gap: 15px;
+  column-gap: 15px;
+  row-gap: 8px;
   align-items: start;
+  margin-bottom: 8px;
 }
 
 /* Titre du sujet */
@@ -2529,20 +2531,20 @@ body {
 
 /* Messages transformés en onglets */
 .aerie-posts.page-tab>.aerie-post {
+  display: block;
   min-width: 0;
   margin: 0;
 }
 
 /* Suppression des éléments inutiles */
 .aerie-posts.page-tab>.aerie-post .aerie-post-profile,
-.aerie-posts.page-tab>.aerie-post .aerie-post-details,
 .aerie-posts.page-tab>.aerie-post .post_signature {
   display: none;
 }
 
-/* Suppression de la grille habituelle des messages */
-.aerie-posts.page-tab>.aerie-post {
-  display: block;
+/* Boutons d'édition visibles lorsque l'option est décochée */
+.aerie-posts.page-tab:not(.clear)>.aerie-post .aerie-post-details {
+  display: flex;
 }
 
 /* Message contenant les boutons */
@@ -2551,6 +2553,9 @@ body {
   grid-row: 2;
   align-self: start;
   background: transparent;
+  border: 0;
+  border-radius: 0;
+  overflow: visible;
 }
 
 /* Contenu du message contenant les boutons */
