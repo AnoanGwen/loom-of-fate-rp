@@ -306,7 +306,9 @@ body {
   border: 2px solid var(--borderClr);
   border-radius: 12px;
   color: var(--textColorAccent);
-  font-variant-caps: all-small-caps;
+  font-family: "Limelight",serif !important;
+  font-variant-caps: normal;
+  text-transform: none;
 }
 
 .aerie-cate-line {
@@ -332,16 +334,22 @@ body {
   white-space: nowrap;
   text-overflow: ellipsis;
   color: var(--textColorAccent) !important;
+  font-family: "Limelight",serif !important;
   font-size: 30px !important;
-  font-weight: 600 !important;
-  line-height: 30px !important;
+  font-weight: 400 !important;
+  line-height: 36px !important;
+  text-transform: none !important;
+  font-variant-caps: normal !important;
 }
 
 .aerie-cate-name,
 .aerie-cate-name * {
   font-size: 30px !important;
   line-height: 30px !important;
-  font-weight: 600 !important;
+  font-weight: 400 !important;
+  font-family: "Limelight",serif !important;
+  font-variant-caps: normal !important;
+  text-transform: none !important;
 }
 
 .aerie-forum_last {
@@ -884,7 +892,9 @@ body {
   font-size: 30px !important;
   font-weight: 600 !important;
   line-height: 30px !important;
-  font-variant-caps: all-small-caps;
+  font-family: "Limelight",serif !important;
+  font-variant-caps: normal;
+  text-transform: none !important;
   text-align: center;
 }
 
@@ -1054,10 +1064,12 @@ body {
 }
 
 .aerie-viewtopic-title-text {
-  font-size: 30px !important;
-  font-weight: 500 !important;
-  line-height: 38px !important;
-  font-variant-caps: all-small-caps;
+  font-size: 26px !important;
+  font-weight: 400 !important;
+  line-height: 36px !important;
+  font-family: "Limelight",serif !important;
+  font-variant-caps: normal !important;
+  text-transform: none !important;
 }
 
 .aerie-viewtopic-posters {
@@ -1522,9 +1534,15 @@ body {
 }
 
 .post_signature {
-  margin-top: 30px;
-  padding-top: 15px;
+  margin-top: 18px !important;
+  padding-top: 12px !important;
   border-top: 1px solid var(--borderClr);
+}
+
+/* Sauts de ligne automatiques avant la signature */
+.post_signature > br:first-child,
+.post_signature > br:first-child + br {
+  display: none !important;
 }
 
 .aerie-viewtopic-actions-bottom {
@@ -2152,7 +2170,7 @@ body {
 .profilsonglets-anoan_content {
   display: none;
   width: 100%;
-  min-height: 100px;
+  min-height: 0;
   padding: 8px;
   box-sizing: border-box;
   background: var(--neutralDark);
@@ -2167,7 +2185,7 @@ body {
 /* Conteneur des contenus */
 .profilsonglets-anoan_contents {
   width: 100%;
-  min-height: 100px;
+  min-height: 0;
   background: var(--neutralDark);
   border: 2px solid var(--borderClr);
   border-radius: 6px;
@@ -2281,7 +2299,7 @@ body {
 .profilsonglets-anoan_contents {
   width: 210px;
   height: auto !important;
-  min-height: 300px;
+  min-height: 0 !important;
   margin: 0;
   box-sizing: border-box;
   background: var(--neutralDark);
@@ -2296,7 +2314,7 @@ body {
   display: none;
   width: 100%;
   height: auto !important;
-  min-height: 292px;
+  min-height: 0 !important;
   padding: 8px 9px 12px;
   box-sizing: border-box;
   overflow: visible !important;
@@ -2709,5 +2727,84 @@ body {
   .aerie-posts.page-tab>.aerie-post:has(div[onglet]) {
     grid-column: 1;
     grid-row: 3;
+  }
+}
+
+/* ===== 20. FORMULAIRE DE RÉDACTION ======================================= */
+
+/* Largeur disponible pour le formulaire */
+#postingbox,
+#postingbox form,
+#post,
+.posting-block,
+.posting-block .inner,
+#textarea_content {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Le titre doit occuper la largeur disponible */
+#postingbox input[name="subject"],
+#post input[name="subject"],
+input#subject,
+input[name="subject"] {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* Éditeur principal prioritaire sur les smileys */
+#textarea_content {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: stretch !important;
+  gap: 12px !important;
+  width: 100% !important;
+  min-width: 0 !important;
+}
+
+#textarea_content > :not(#smiley-box):not(.smiley-box) {
+  flex: 1 1 0 !important;
+  min-width: 0 !important;
+  max-width: none !important;
+}
+
+#textarea_content #smiley-box,
+#textarea_content .smiley-box,
+#smiley-box {
+  flex: 0 0 200px !important;
+  width: 200px !important;
+  min-width: 0 !important;
+  max-width: 200px !important;
+  box-sizing: border-box !important;
+}
+
+#textarea_content .sceditor-container,
+#textarea_content .sceditor-container iframe,
+#textarea_content textarea,
+#textarea_content #message,
+.sceditor-container {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+}
+
+#textarea_content .sceditor-container,
+#textarea_content #message {
+  min-height: 350px;
+}
+
+@media (max-width: 650px) {
+  #textarea_content {
+    flex-direction: column !important;
+  }
+  #textarea_content #smiley-box,
+  #textarea_content .smiley-box,
+  #smiley-box {
+    flex-basis: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
   }
 }
