@@ -2312,9 +2312,9 @@ body {
 /* Conteneur des onglets LOFS */
 .onglets-lofs {
   display: grid;
-  gap: 8px;
   width: 100%;
   margin: 0 auto;
+  gap: 8px;
   box-sizing: border-box;
 }
 
@@ -2329,25 +2329,24 @@ body {
   align-items: center;
   justify-content: center;
   min-width: 0;
-  padding: 6px 12px;
+  padding: 8px 16px;
   box-sizing: border-box;
-  background: var(--neutralDarker);
-  border: 2px solid var(--borderClr);
+  background: var(--neutralDark);
+  border: 2px solid var(--accentClrAlt);
   border-radius: 6px;
-  color: var(--textColor);
+  color: var(--textColorAccent);
   font-family: Garamond,serif;
-  font-size: 15px;
+  font-size: 18px;
   font-variant-caps: all-small-caps;
   text-align: center;
-  white-space: nowrap;
   cursor: pointer;
   transition: .2s;
 }
 
 .onglets-lofs>label:hover {
-  background: var(--neutralDark);
+  background: var(--neutral);
   border-color: var(--accentClr);
-  color: var(--textColorAccent);
+  color: var(--accentClr);
 }
 
 .onglets-lofs>input:checked+label {
@@ -2359,63 +2358,60 @@ body {
 
 /* Contenu des onglets */
 .onglets-lofs-content {
-  z-index: 1;
+  display: none;
   min-width: 0;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  box-sizing: border-box;
+  width: 100%;
   padding: 15px;
+  box-sizing: border-box;
   background: var(--neutralDark);
   border: 2px solid var(--accentClr);
   border-radius: 6px;
   color: var(--textColor);
-  transition: opacity .2s;
 }
 
 .onglets-lofs>input:checked+label+.onglets-lofs-content {
-  z-index: 2;
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
+  display: block;
 }
 
 /* Onglets horizontaux */
 .onglets-lofs.horizontal {
-  grid-template-columns: repeat(30,max-content);
-  grid-template-rows: max-content minmax(100px,auto);
-  justify-content: start;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
 }
 
 .onglets-lofs.horizontal>label {
-  grid-row: 1;
-  min-height: 36px;
-  padding: 5px 12px;
-  font-size: 14px;
+  flex: 0 0 auto;
+  min-width: 150px;
+  min-height: 50px;
+  padding: 10px 22px;
+  font-size: 20px;
 }
 
 .onglets-lofs.horizontal>.onglets-lofs-content {
-  grid-column: 1/-1;
-  grid-row: 2;
-  width: 100%;
+  flex: 0 0 100%;
+  order: 100;
+  min-height: 100px;
 }
 
-/* Onglets verticaux/
+/* Onglets verticaux */
 .onglets-lofs.vertical {
-  grid-template-columns: 190px minmax(0,1fr);
-  grid-template-rows: repeat(30,minmax(min-content,auto));
-  width: 100%;
-  justify-content: stretch;
+  display: grid;
+  grid-template-columns: 200px minmax(0,1fr);
+  grid-auto-rows: minmax(48px,auto);
   align-items: start;
+  gap: 8px 12px;
 }
 
 .onglets-lofs.vertical>label {
   grid-column: 1;
   justify-self: center;
   justify-content: center;
-  width: 180px;
-  min-height: 44px;
-  padding: 7px 12px;
+  width: 190px;
+  min-height: 48px;
+  padding: 8px 12px;
   border-radius: 0 6px 12px 0;
   font-size: 18px;
 }
@@ -2432,8 +2428,7 @@ body {
 
 .onglets-lofs.vertical>.onglets-lofs-content {
   grid-column: 2;
-  grid-row: 1/-1;
-  width: 100%;
+  grid-row: 1 / span 30;
   min-height: 150px;
   align-self: stretch;
 }
