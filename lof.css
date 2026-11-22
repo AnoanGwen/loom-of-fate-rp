@@ -2380,7 +2380,7 @@ body {
   display: block;
 }
 
-/* Onglets horizontaux : modèle 2 */
+/* Onglets horizontaux */
 .onglets-lofs.horizontal {
   display: flex;
   flex-wrap: wrap;
@@ -2405,7 +2405,7 @@ body {
   height: auto;
 }
 
-/* Onglets verticaux : modèle 5 */
+/* Onglets verticaux */
 .onglets-lofs.vertical {
   display: grid;
   grid-template-columns: 160px minmax(0,1fr);
