@@ -2333,7 +2333,7 @@ body {
   padding: 8px 12px;
   box-sizing: border-box;
   background: var(--neutralDarker);
-  border: 2px solid var(--accentClrAlt);
+  border: 2px solid var(--borderClr);
   border-radius: 6px;
   color: var(--textColor);
   font-family: Garamond,serif;
@@ -2349,10 +2349,11 @@ body {
 .onglets-lofs>label:hover {
   background: var(--neutralDark);
   color: var(--textColorAccent);
+  border-color: var(--accentClrAlt);
 }
 
 .onglets-lofs>input:checked+label {
-  background: var(--neutral);
+  background: var(--neutralDark);
   border-color: var(--accentClrAlt);
   color: var(--textColorAccent);
   font-weight: 700;
@@ -2368,7 +2369,7 @@ body {
   padding: 15px;
   box-sizing: border-box;
   background: var(--neutralDark);
-  border: 2px solid var(--accentClrAlt);
+  border: 2px solid var(--borderClr);
   border-radius: 6px;
   color: var(--textColor);
 }
@@ -2399,18 +2400,16 @@ body {
   flex: 0 0 100%;
   order: 100;
   width: 100%;
-  height: auto;
 }
 
 /* Onglets verticaux */
 .onglets-lofs.vertical {
   display: grid;
   grid-template-columns: 170px minmax(0,1fr);
-  grid-template-rows: auto;
-  grid-auto-rows: 44px;
-  align-items: start;
+  grid-template-rows: repeat(30,44px);
   column-gap: 12px;
   row-gap: 8px;
+  align-items: start;
 }
 
 .onglets-lofs.vertical>label {
@@ -2432,11 +2431,11 @@ body {
   height: 1px;
   flex: 0 0 25px;
   margin-left: 8px;
-  background: var(--accentClrAlt);
+  background: var(--borderClr);
 }
 
-.onglets-lofs.vertical>input:checked+label {
-  font-weight: 700;
+.onglets-lofs.vertical>input:checked+label::after {
+  background: var(--accentClrAlt);
 }
 
 .onglets-lofs.vertical>.onglets-lofs-content {
